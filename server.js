@@ -56,8 +56,10 @@ var server = http.createServer(function(request, response) {
 	serveStatic(response, cache, absPath);
 });
 
-server.listen(3000, function() {
-	console.log("Server listening on port 3000.");
+var port = Number(process.env.PORT || 3000);
+
+server.listen(port, function() {
+	console.log("Server listening on port " + port + ".");
 });
 
 chatServer.listen(server);
